@@ -1,0 +1,27 @@
+package dao;
+
+/**
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ *
+ */
+
+import javax.sql.DataSource;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+public class DataSourceFactory {
+
+	private static MysqlDataSource dataSource;
+
+	public static DataSource getDataSource() {
+		if (dataSource == null) {
+			dataSource = new MysqlDataSource();
+			dataSource.setServerName("localhost");
+			dataSource.setPort(3309);
+			dataSource.setDatabaseName("ContactApp");
+			dataSource.setUser("root");
+			dataSource.setPassword("monmotdepasse");
+		}
+		return dataSource;
+	}
+}
