@@ -5,21 +5,20 @@ import javafx.scene.Node;
 import repertoire.service.StageService;
 import repertoire.service.ViewService;
 
-public class HomeScreenController {
+public class RepertoireAdminController {
 
-	
 	@FXML
-	public void handleShowButton() throws Exception {
+	public void handleChangeButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
 	
 	@FXML
-	public void handleResearchButton() throws Exception {
+	public void handleDeleteButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
 	
 	@FXML
-	public void handleAddButton() throws Exception {
-		StageService.showView((Node) ViewService.getView("AddRepertoire"));
+	public void handleReturnButton() throws Exception {
+		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
 }

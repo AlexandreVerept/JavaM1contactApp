@@ -2,10 +2,10 @@ package repertoire.service;
 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
-import repertoire.app.RepertoireApp;
+import repertoire.RepertoireApp;
 
 public class ViewService {
-	
+
 	public static <T> T getView(String id) {
 		return getLoader(id).getRoot();
 	}
@@ -22,5 +22,4 @@ public class ViewService {
 		}
 
 	}
-	
 }

@@ -40,7 +40,5 @@ public class StageService {
 	public static void closeStage() {
 		StageServiceHolder.INSTANCE.primaryStage
 				.fireEvent(new WindowEvent(StageServiceHolder.INSTANCE.primaryStage, WindowEvent.WINDOW_CLOSE_REQUEST));
-
 	}
-	
 }
