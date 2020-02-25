@@ -4,13 +4,31 @@
   <artifactId>Java2Project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>ISEN Java 2 Project 2020</name>
-  <description>Project Cantact App by Gabriel Desmullier, Alexancre Verept, Daniel Gheysens</description>
+  <description>Project Contact App by Gabriel Desmullier, Alexancre Verept, Daniel Gheysens</description>
   
   	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>isen.quiz.QuizApp</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
   	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
