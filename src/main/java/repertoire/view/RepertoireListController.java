@@ -74,11 +74,24 @@ public class RepertoireListController {
 					}
 				}
 		);
+		this.resetView();
+	}
+	
+	private void resetView() {
+		this.showPersonDetail(null);
+		this.refreshList();
 	}
 	
 	private void showPersonDetail(Person person) {
 		if(person==null) {
 			formPane.setVisible(true);
+			this.Lastname.setText(null);
+			this.Firstname.setText(null);
+			this.Nickname.setText(null);
+			this.Adresse.setText(null);
+			this.Phone.setText(null);
+			this.Mail.setText(null);
+			this.Birthday.setText(null);
 		}
 		else {
 			formPane.setVisible(true);
@@ -89,22 +102,47 @@ public class RepertoireListController {
 			this.Adresse.setText(this.currentPerson.getAddress());
 			this.Phone.setText(this.currentPerson.getPhoneNumber());
 			this.Mail.setText(this.currentPerson.geteMailAddress());
-			//this.Birthday.setText(this.currentPerson.getBirthDate());
+			this.Birthday.setText(this.currentPerson.getBirthDateString());
 		}
 	}
 	
 	@FXML
 	public void handleModifieButton() throws Exception {
-		
+		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
+		if(selectedIndex>=0) {
+			//ton code BDD pour la modification sachant que les info sont contenues dans le current person
+			this.refreshList();
+		}
+	}
+	
+	@FXML
+	public void handleClearButton() throws Exception{
+		this.resetView();
 	}
 	
 	@FXML
 	public void handleResearchButton() throws Exception {
-		
+		//code BDD pour la recherche
+		if(this.currentPerson==null) {
+			formPane.setVisible(true);
+		}
+		else {
+			this.Lastname.setText(this.currentPerson.getLastName());
+			this.Firstname.setText(this.currentPerson.getFirstName());
+			this.Nickname.setText(this.currentPerson.getNickName());
+			this.Adresse.setText(this.currentPerson.getAddress());
+			this.Phone.setText(this.currentPerson.getPhoneNumber());
+			this.Mail.setText(this.currentPerson.geteMailAddress());
+			this.Birthday.setText(this.currentPerson.getBirthDateString());
+		}
 	}
 	
 	@FXML
 	public void handleDeleteButton() throws Exception {
-		
+		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
+		if(selectedIndex>=0) {
+			//ton code BDD pour le delete
+			this.resetView();
+		}
 	}
 }

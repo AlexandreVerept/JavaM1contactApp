@@ -6,6 +6,7 @@ package repertoire.entities;
  */
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Person {
 
@@ -155,6 +156,11 @@ public class Person {
 	 */
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
+	}
+	
+	public String getBirthDateString() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+		return this.birthDate.format(formatter);
 	}
 
 	@Override

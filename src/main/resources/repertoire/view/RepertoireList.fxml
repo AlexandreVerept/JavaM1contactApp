@@ -32,7 +32,7 @@
                         <Label id="phone" alignment="TOP_LEFT" layoutX="29.0" layoutY="140.0" text="phone" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="140.0" />
                         <Label id="mail" alignment="TOP_LEFT" layoutX="37.0" layoutY="220.0" text="mail" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="220.0" />
                         <Label id="adresse" alignment="TOP_LEFT" layoutX="25.0" layoutY="180.0" text="adresse" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="180.0" />
-                        <Button id="modifie_button" mnemonicParsing="false" onAction="#handleModifieButton" text="modifie" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                        <Button id="modifie_button" mnemonicParsing="false" onAction="#handleModifieButton" text="modifie" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="307.0" />
                         <TextField id="Lastname" fx:id="Lastname" layoutX="70.0" layoutY="55.0" prefHeight="31.0" prefWidth="143.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="55.0" />
                         <TextField id="nickname" fx:id="Nickname" layoutX="70.0" layoutY="94.0" prefHeight="31.0" prefWidth="304.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="95.0" />
                         <TextField id="adresse" fx:id="Adresse" layoutX="70.0" layoutY="174.0" prefHeight="31.0" prefWidth="304.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="175.0" />
@@ -42,8 +42,9 @@
                         <TextField id="phone" fx:id="Phone" layoutX="70.0" layoutY="135.0" prefHeight="31.0" prefWidth="304.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0" />
                         <TextField id="birthday" fx:id="Birthday" layoutX="83.0" layoutY="264.0" prefHeight="31.0" prefWidth="304.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="255.0" />
                         <Label id="birthday" alignment="TOP_LEFT" layoutX="23.0" layoutY="260.0" text="birthday" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="260.0" />
-                        <Button id="delete_button" layoutX="252.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="90.0" />
-                        <Button id="research_button" layoutX="16.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleResearchButton" text="research" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="335.0" />
+                        <Button id="delete_button" layoutX="252.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="delete" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="307.0" />
+                        <Button id="research_button" layoutX="16.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleResearchButton" text="research" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="307.0" />
+                        <Button id="clear_button" layoutX="100.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleClearButton" text="clear" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="307.0" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>
