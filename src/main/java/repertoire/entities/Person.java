@@ -1,4 +1,4 @@
-package entities;
+package repertoire.entities;
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept

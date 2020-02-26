@@ -1,0 +1,8 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Salt;Achilles;H
+TEL;TYPE=cell:(+33)612345678
+ADR;TYPE=home:;;3 rue des Lys;Lyon;56333;France
+EMAIL:salt.achilles@yncrea.fr
+ANNIVERSARY:19901021
+END:VCARD
