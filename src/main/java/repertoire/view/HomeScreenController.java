@@ -14,11 +14,6 @@ public class HomeScreenController {
 	}
 	
 	@FXML
-	public void handleResearchButton() throws Exception {
-		StageService.showView((Node) ViewService.getView("RepertoireList"));
-	}
-	
-	@FXML
 	public void handleAddButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("AddRepertoire"));
 	}

@@ -12,7 +12,7 @@ public class PersonService {
 		persons = FXCollections.observableArrayList();
 		persons.add(new Person(0,"Gheysens","Daniel","Dany","0648168206","20 square Foch", "daniel.gheysens@isen.yncrea.fr", null));
 		persons.add(new Person(0,"Verept","Alexandre","Alex","..........","36 rue gambrinus", "alexandre.verept@isen.yncrea.fr", null));
-		persons.add(new Person(0,"Desmullier","Gabriel","Gaby","........","........", "daniel.gheysens@isen.yncrea.fr", null));
+		persons.add(new Person(0,"Desmullier","Gabriel","Gaby","........","........", "gabriel.desmullier@isen.yncrea.fr", null));
 	}
 	
 	public static ObservableList<Person> getPersons() {
