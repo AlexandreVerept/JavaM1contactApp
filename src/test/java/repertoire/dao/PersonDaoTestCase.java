@@ -167,20 +167,44 @@ public class PersonDaoTestCase {
 	public void shouldDeleteByID() throws SQLException {
 		PersonDao personDao = new PersonDao();
 
-		// delete ID 1
-		Boolean answer = personDao.deletePersonbyID(1);
+		// delete ID 2
+		Boolean answer = personDao.deletePersonbyID(2);
 		assertThat(answer == true);
 
 		// fail to delete ID 123
 		answer = personDao.deletePersonbyID(123);
 		assertThat(answer == false);
 
-		// check in the db if the id one is still there
+		// check in the db if the id 2 is still there
 		Connection connection = DataSourceFactory.getConnection();
 		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM person WHERE idperson=1");
+		ResultSet resultSet = statement.executeQuery("SELECT * FROM person WHERE idperson=2");
 
 		assertThat(resultSet.next()).isFalse();
+
+		resultSet.close();
+		statement.close();
+		connection.close();
+
+	}
+	
+	@Test
+	public void shouldUpdate() throws SQLException {
+		PersonDao personDao = new PersonDao();
+
+		Person personToUpdate = new Person(Integer.valueOf(1), "Ginette", "Six Tonnes", "Gigi", "911", "graveyard",
+				"gigi@lol.com", LocalDate.of(2000, 12, 4));
+		
+		Boolean answer = personDao.updatePerson(personToUpdate);
+		assertThat(answer == true);
+		
+		// check in the db if the id one is updated
+		Connection connection = DataSourceFactory.getConnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery("select * from person where (idperson = 1 and lastname='Ginette' and firstname='Six Tonnes' and nickname='Gigi' and phone_number='911' and adress='graveyard' and emailadress='gigi@lol.com')");
+		
+		assertThat(resultSet.next()).isTrue();
+		
 
 		resultSet.close();
 		statement.close();

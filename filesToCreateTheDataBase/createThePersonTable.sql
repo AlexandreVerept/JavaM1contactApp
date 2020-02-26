@@ -1,4 +1,3 @@
-USE `contactapp`;
 CREATE TABLE genre (
   idperson INT NOT NULL AUTO_INCREMENT,
   lastname VARCHAR(45) NOT NULL,

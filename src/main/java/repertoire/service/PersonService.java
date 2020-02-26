@@ -8,8 +8,6 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
-
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
  */
