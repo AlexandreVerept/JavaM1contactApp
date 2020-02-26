@@ -1,4 +1,4 @@
-package app;
+package repertoire.app;
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept

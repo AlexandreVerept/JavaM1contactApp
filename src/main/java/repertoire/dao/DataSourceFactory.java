@@ -1,4 +1,4 @@
-package dao;
+package repertoire.dao;
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept

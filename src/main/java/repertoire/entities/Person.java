@@ -1,4 +1,4 @@
-package entities;
+package repertoire.entities;
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
@@ -7,7 +7,7 @@ package entities;
 
 import java.time.LocalDate;
 
-public class person {
+public class Person {
 
 	private int idPerson;
 	private String lastName;
@@ -18,7 +18,7 @@ public class person {
 	private String eMailAddress;
 	private LocalDate birthDate;
 
-	public person() {
+	public Person() {
 		
 	}
 	
@@ -32,7 +32,7 @@ public class person {
 	 * @param eMailAddress
 	 * @param birthDate
 	 */
-	public person(int idPerson, String lastName, String firstName, String nickName, String phoneNumber, String address,
+	public Person(int idPerson, String lastName, String firstName, String nickName, String phoneNumber, String address,
 			String eMailAddress, LocalDate birthDate) {
 		super();
 		this.idPerson = idPerson;
