@@ -1,20 +1,14 @@
-/**
- * 
- */
 package repertoire.ios;
 
 import java.io.IOException;
 
 import repertoire.entities.Person;
 
-
-
 /**
- * @author Gabriel
- *
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
  */
 public class Export {
-	
+
 	private RootManager exportRoot;
 
 	/**
@@ -23,13 +17,13 @@ public class Export {
 	public Export() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Export(String path) throws IOException {
-		this.exportRoot=new RootManager(path);
-		
+		this.exportRoot = new RootManager(path);
+
 	}
 
 	public void exportToVcard(Person person) {
-		
+
 	}
 }

@@ -19,9 +19,9 @@ public class Person {
 	private LocalDate birthDate;
 
 	public Person() {
-		
+
 	}
-	
+
 	/**
 	 * @param idPerson
 	 * @param lastName
@@ -163,8 +163,5 @@ public class Person {
 				+ nickName + ", phoneNumber=" + phoneNumber + ", address=" + address + ", eMailAddress=" + eMailAddress
 				+ ", birthDate=" + birthDate + "]";
 	}
-	
-	
-	
 
 }

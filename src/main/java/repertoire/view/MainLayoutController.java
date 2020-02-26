@@ -4,8 +4,12 @@ import javafx.scene.Node;
 import repertoire.service.StageService;
 import repertoire.service.ViewService;
 
+/**
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ */
+
 public class MainLayoutController {
-	
+
 	public void closeApplication() {
 		StageService.closeStage();
 	}

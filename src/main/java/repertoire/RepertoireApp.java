@@ -6,12 +6,16 @@ import javafx.stage.Stage;
 import repertoire.service.StageService;
 import repertoire.service.ViewService;
 
+/**
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ */
+
 public class RepertoireApp extends Application {
 
 	public RepertoireApp() {
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 
@@ -21,7 +25,7 @@ public class RepertoireApp extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		StageService.initPrimaryStage(primaryStage);
 		StageService.showView((Node) ViewService.getView("HomeScreen"));
-		
+
 	}
 
 }

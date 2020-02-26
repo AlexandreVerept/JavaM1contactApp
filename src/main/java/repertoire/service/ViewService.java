@@ -4,6 +4,9 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import repertoire.RepertoireApp;
 
+/**
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ */
 public class ViewService {
 
 	public static <T> T getView(String id) {

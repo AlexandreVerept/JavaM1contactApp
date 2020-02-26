@@ -1,20 +1,15 @@
 package repertoire.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import repertoire.entities.Person;
 import repertoire.exceptions.DaoAllParametersAreNullException;
-
-
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
@@ -177,7 +172,7 @@ public class PersonDao {
 	 * 
 	 * @param Person
 	 * @return boolean indicating the success or not
-	 * @throws SQLException 
+	 * @throws SQLException
 	 * 
 	 */
 	public Boolean deletePersonbyID(int id) throws SQLException {
