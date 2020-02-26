@@ -1,27 +1,30 @@
 package repertoire.dao;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
- * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
- *
+ * @author Philippe Duval (adapted by Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept)
  */
-
-import javax.sql.DataSource;
-
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-
 public class DataSourceFactory {
 
-	private static MysqlDataSource dataSource;
-
-	public static DataSource getDataSource() {
-		if (dataSource == null) {
-			dataSource = new MysqlDataSource();
-			dataSource.setServerName("localhost");
-			dataSource.setPort(3309);
-			dataSource.setDatabaseName("ContactApp");
-			dataSource.setUser("root");
-			dataSource.setPassword("monmotdepasse");
+	/**
+	 * @return a connection to the Database inferred by the URL
+	 * @throws SQLException
+	 */
+	public static Connection getConnection() throws SQLException {
+		String url = "jdbc:mysql://localhost:3306/contactapp" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String username = "java";
+		String password = "java";
+		
+		Connection cnx = DriverManager.getConnection(url,username,password);
+		if (cnx != null) {
+			DatabaseMetaData meta = cnx.getMetaData();
+			//System.out.println("The driver name is " + meta.getDriverName());
 		}
-		return dataSource;
+		return cnx;
+
 	}
 }
