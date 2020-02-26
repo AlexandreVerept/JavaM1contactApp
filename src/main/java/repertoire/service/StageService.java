@@ -6,6 +6,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ */
+
 public class StageService {
 
 	private StageService() {

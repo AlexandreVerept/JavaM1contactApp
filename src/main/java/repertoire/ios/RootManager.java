@@ -9,39 +9,33 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * @author Gabriel
- *
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
  */
 public class RootManager {
 
-    private Path root;
-    private String extension;
-	/**
-	 * 
-	 */
+	private Path root;
+	private String extension;
+
 	public RootManager() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * *
 	 * @param root
 	 * @throws IOException
 	 * 
 	 */
-	public RootManager(String root) throws IOException{
-		this.root=Paths.get(root);
-		if(Files.notExists(this.root)) {
+	public RootManager(String root) throws IOException {
+		this.root = Paths.get(root);
+		if (Files.notExists(this.root)) {
 			Files.createDirectory(this.root);
 		}
-		this.extension=".vcard";
+		this.extension = ".vcard";
 	}
-	
+
 	private boolean fileAlreadyExist(String fileName) {
-		Path file=this.root.resolve(fileName+this.extension);
+		Path file = this.root.resolve(fileName + this.extension);
 		return Files.exists(file);
 	}
-	
-	
-	
+
 }

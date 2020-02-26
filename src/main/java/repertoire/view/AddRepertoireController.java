@@ -7,8 +7,12 @@ import repertoire.service.StageService;
 import repertoire.service.ViewService;
 import repertoire.entities.Person;
 
+/**
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ */
+
 public class AddRepertoireController {
-	
+
 	@FXML
 	private TextField lastname;
 	
@@ -43,7 +47,7 @@ public class AddRepertoireController {
 		//Ton code pour le ADD
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
-	
+
 	@FXML
 	public void handleReturnButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("RepertoireList"));

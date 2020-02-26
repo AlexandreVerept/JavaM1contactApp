@@ -1,0 +1,1 @@
+CREATE USER 'java'@'localhost' IDENTIFIED BY 'password';

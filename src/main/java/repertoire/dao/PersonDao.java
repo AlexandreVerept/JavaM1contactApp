@@ -1,20 +1,15 @@
 package repertoire.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import repertoire.entities.Person;
 import repertoire.exceptions.DaoAllParametersAreNullException;
-
-
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
@@ -133,8 +128,8 @@ public class PersonDao {
 					return listOfPerson;
 				}
 			}
-		} catch (SQLException e1) {
-			throw new RuntimeException("Error: listPersons", e1);
+		} catch (SQLException e) {
+			throw new RuntimeException("Error: searchPersons", e);
 		}
 	}
 
@@ -177,23 +172,62 @@ public class PersonDao {
 	 * 
 	 * @param Person
 	 * @return boolean indicating the success or not
-	 * @throws SQLException 
+	 * @throws SQLException
 	 * 
 	 */
 	public Boolean deletePersonbyID(int id) throws SQLException {
 
+		Boolean success = false;
+
 		try (Connection cnx = DataSourceFactory.getConnection()) {
 			try (PreparedStatement stmt = cnx.prepareStatement("DELETE FROM person WHERE idPerson=?")) {
 				stmt.setInt(1, id);
-				// we need to do add one day as MySQL database create an offset of -1 day when
-				// we use "LocalDate" for unknown reason
 
 				stmt.executeUpdate();
 
+				success = true;
+
 			} catch (SQLException e) {
-				throw new RuntimeException("Error: addPerson", e);
+				throw new RuntimeException("Error: deletePersonbyID", e);
 			}
 		}
-		return true;
+		return success;
+	}
+
+	/**
+	 * Method Used to modify a person in the DB
+	 * 
+	 * @param Person
+	 * @return boolean indicating the success or not
+	 * @throws SQLException
+	 * 
+	 */
+	public Boolean updatePerson(Person person) throws SQLException {
+
+		Boolean success = false;
+
+		try (Connection cnx = DataSourceFactory.getConnection()) {
+			try (PreparedStatement stmt = cnx.prepareStatement(
+					"UPDATE person SET lastname=?,firstname=?,nickname=?,phone_number=?,adress=?,emailadress=?,birth_date=? where idperson = ?")) {
+
+				stmt.setString(1, person.getLastName());
+				stmt.setString(2, person.getFirstName());
+				stmt.setString(3, person.getNickName());
+				stmt.setString(4, person.getPhoneNumber());
+				stmt.setString(5, person.getAddress());
+				stmt.setString(6, person.geteMailAddress());
+				stmt.setDate(7, java.sql.Date.valueOf(person.getBirthDate().plusDays(1)));
+
+				stmt.setInt(8, person.getIdPerson());
+
+				stmt.executeUpdate();
+
+				success = true;
+
+			} catch (SQLException e) {
+				throw new RuntimeException("Error: updatePerson", e);
+			}
+		}
+		return success;
 	}
 }
