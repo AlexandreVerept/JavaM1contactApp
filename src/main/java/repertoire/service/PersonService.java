@@ -18,17 +18,6 @@ public class PersonService {
 
 	private PersonService() {
 		persons = FXCollections.observableArrayList();
-
-		// hardcoded version for test:
-		/*
-		 persons.add(new Person(0, "Gheysens", "Daniel", "Dany", "06.......",
-		 "20 square des frites", "daniel.gheysens@java2.fr", LocalDate.now()));
-		 persons.add(new Person(0, "Verept", "Alexandre", "Alex", "02........",
-		 "26 rue de Magic", "alexandre.verept@java2.fr", LocalDate.now()));
-		 persons.add(new Person(0, "Desmullier", "Gabriel", "Gaby", "03......",
-		 "3 quai des clowns", "gabriel.desmullier@java2.fr", LocalDate.now()));
-		*/
-		// dao version:
 		
 		PersonDao personDao = new PersonDao();
 		List<Person> personsInTheDB = personDao.listPersons();
@@ -39,6 +28,16 @@ public class PersonService {
 	}
 
 	public static ObservableList<Person> getPersons() {
+		
+		PersonServiceHolder.INSTANCE.persons.clear();
+		
+		PersonDao personDao = new PersonDao();
+		List<Person> personsInTheDB = personDao.listPersons();
+		
+		for (int i = 0; i < personsInTheDB.size(); i++) {
+			PersonServiceHolder.INSTANCE.persons.add(personsInTheDB.get(i));
+		}
+		
 		return PersonServiceHolder.INSTANCE.persons;
 	}
 

@@ -80,7 +80,7 @@ public class RepertoireListController {
 
 	private void resetView() {
 		this.showPersonDetail(null);
-		this.refreshList();
+		this.populateList();
 	}
 
 	private void showPersonDetail(Person person) {
@@ -118,7 +118,7 @@ public class RepertoireListController {
 			this.currentPerson.setAddress(this.Adresse.getText());
 			this.currentPerson.setBirthDate(LocalDate.parse(this.Birthday.getText()));
 			PersonDao personDao = new PersonDao();
-			personDao.updatePerson(this.currentPerson); // need the update person
+			personDao.updatePerson(this.currentPerson);
 			this.populateList();
 		}
 	}
@@ -204,6 +204,6 @@ public class RepertoireListController {
 	
 	@FXML
 	public void handleUrlexpButton() throws Exception {
-		//la person a export est dans currentPerson
+		// TODO la person a export est dans currentPerson
 	}
 }

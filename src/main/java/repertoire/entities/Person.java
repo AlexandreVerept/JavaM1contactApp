@@ -45,6 +45,29 @@ public class Person {
 		this.eMailAddress = eMailAddress;
 		this.birthDate = birthDate;
 	}
+	
+	/**
+	 * The same object, but we do not need the birthdate
+	 * @param idPerson
+	 * @param lastName
+	 * @param firstName
+	 * @param nickName
+	 * @param phoneNumber
+	 * @param address
+	 * @param eMailAddress
+	 */
+	public Person(int idPerson, String lastName, String firstName, String nickName, String phoneNumber, String address,
+			String eMailAddress) {
+		super();
+		this.idPerson = idPerson;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.nickName = nickName;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.eMailAddress = eMailAddress;
+		this.birthDate = null;
+	}
 
 	/**
 	 * @return the idPerson
@@ -160,7 +183,7 @@ public class Person {
 	
 	public String getBirthDateString() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-LL-dd");
-		if(this.birthDate==null) {
+		if(this.birthDate!=null) {
 			return this.birthDate.format(formatter);
 		}
 		else {
@@ -170,9 +193,17 @@ public class Person {
 
 	@Override
 	public String toString() {
+		String bd;
+		if (birthDate==null){
+			bd = "";
+		}
+		else {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-LL-dd");
+			bd = this.birthDate.format(formatter);
+		}
 		return "person [idPerson=" + idPerson + ", lastName=" + lastName + ", firstName=" + firstName + ", nickName="
 				+ nickName + ", phoneNumber=" + phoneNumber + ", address=" + address + ", eMailAddress=" + eMailAddress
-				+ ", birthDate=" + birthDate + "]";
+				+ ", birthDate=" + bd + "]";
 	}
 
 }

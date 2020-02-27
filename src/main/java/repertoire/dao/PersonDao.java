@@ -17,7 +17,7 @@ import repertoire.exceptions.DaoAllParametersAreNullException;
 public class PersonDao {
 
 	/**
-	 * Method Used to get the list of all person in the DB (in lastname order)
+	 * Method Used to get the list of all person in the DB
 	 * 
 	 * @return the list of all Person in the database
 	 */
@@ -25,14 +25,23 @@ public class PersonDao {
 		List<Person> listOfPerson = new ArrayList<>();
 		try (Connection connection = DataSourceFactory.getConnection()) {
 			try (Statement stmt = connection.createStatement()) {
-				try (ResultSet results = stmt.executeQuery("select * from person order by lastname")) {
+				try (ResultSet results = stmt.executeQuery("select * from person order by nickname")) {
 					while (results.next()) {
-
-						Person person = new Person(results.getInt("idperson"), results.getString("lastname"),
+						
+						if(results.getDate("birth_date")==null) {
+							Person person = new Person(results.getInt("idperson"), results.getString("lastname"),
+									results.getString("firstname"), results.getString("nickname"),
+									results.getString("phone_number"), results.getString("adress"),
+									results.getString("emailadress"));
+							listOfPerson.add(person);
+						}
+						else {
+							Person person = new Person(results.getInt("idperson"), results.getString("lastname"),
 								results.getString("firstname"), results.getString("nickname"),
 								results.getString("phone_number"), results.getString("adress"),
 								results.getString("emailadress"), results.getDate("birth_date").toLocalDate());
-						listOfPerson.add(person);
+							listOfPerson.add(person);
+						}						
 					}
 					return listOfPerson;
 				}
@@ -153,7 +162,12 @@ public class PersonDao {
 				stmt.setString(6, person.geteMailAddress());
 				// we need to do add one day as MySQL database create an offset of -1 day when
 				// we use "LocalDate" for unknown reason
-				stmt.setDate(7, java.sql.Date.valueOf(person.getBirthDate().plusDays(1)));
+				if(person.getBirthDate()!=null) {
+					stmt.setDate(7, java.sql.Date.valueOf(person.getBirthDate().plusDays(1)));
+				}
+				else {
+					stmt.setNull(7, java.sql.Types.DATE);
+				}
 
 				stmt.executeUpdate();
 				try (ResultSet keys = stmt.getGeneratedKeys()) {

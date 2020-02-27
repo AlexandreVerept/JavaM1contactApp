@@ -51,7 +51,10 @@ public class AddRepertoireController {
 		this.currentPerson.setAddress(this.adresse.getText());
 		this.currentPerson.seteMailAddress(this.mail.getText());
 		this.currentPerson.setPhoneNumber(this.phone.getText());
-		this.currentPerson.setBirthDate(LocalDate.parse(this.birthday.getText()));
+		if (!this.birthday.getText().equals("")) {
+			this.currentPerson.setBirthDate(LocalDate.parse(this.birthday.getText()));
+		}
+		
 		PersonDao personDao = new PersonDao();
 		this.currentPerson = personDao.addPerson(this.currentPerson);
 		
@@ -66,7 +69,7 @@ public class AddRepertoireController {
 	@FXML
 	public void handleUrlButton() throws Exception {
 		addurl=this.url.getText();
-		//code gabi qui renvoie une Person
+		// TODO code gabi qui renvoie une Person
 		//this.currentPerson=		;
 		this.lastname.setText(this.currentPerson.getLastName());
 		this.firstname.setText(this.currentPerson.getFirstName());
