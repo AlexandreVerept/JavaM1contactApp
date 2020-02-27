@@ -3,7 +3,6 @@ package repertoire.service;
 import repertoire.dao.PersonDao;
 import repertoire.entities.Person;
 import java.util.List;
-import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

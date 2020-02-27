@@ -1,5 +1,7 @@
 package repertoire.view;
 
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -104,7 +106,11 @@ public class RepertoireListController {
 	public void handleModifieButton() throws Exception {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
 		if(selectedIndex>=0) {
-			//ton code BDD pour la modification sachant que les info sont contenues dans le current person
+			//Update DB
+			// TODO
+			PersonDao personDao = new PersonDao();
+			personDao.updatePerson(this.currentPerson); // need the update person
+			
 			this.populateList();
 		}
 	}
@@ -116,7 +122,12 @@ public class RepertoireListController {
 
 	@FXML
 	public void handleResearchButton() throws Exception {
-		// code BDD pour la recherche
+		// search the DB
+		// TODO
+		String nullcaracter = null;
+		PersonDao personDao = new PersonDao();
+		List<Person> listOfPerson = personDao.searchPersons(nullcaracter,nullcaracter,nullcaracter,nullcaracter,nullcaracter,nullcaracter);
+		
 		if (this.currentPerson == null) {
 			formPane.setVisible(true);
 		} else {
@@ -134,7 +145,11 @@ public class RepertoireListController {
 	public void handleDeleteButton() throws Exception {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
 		if(selectedIndex>=0) {
-			//ton code BDD pour le delete
+			//Delete DB
+			// TODO
+			PersonDao personDao = new PersonDao();
+			personDao.deletePersonbyID(this.currentPerson.getIdPerson());
+			
 			this.populateList();
 			this.resetView();
 		}

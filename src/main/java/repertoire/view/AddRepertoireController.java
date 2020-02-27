@@ -41,23 +41,15 @@ public class AddRepertoireController {
 	
 	@FXML
 	public void handleAddButton() throws Exception {
-		System.out.println("ctrl1");
 		this.currentPerson.setLastName(this.lastname.getText());
-		System.out.println("ctrl2");
 		this.currentPerson.setFirstName(this.firstname.getText());
-		System.out.println("ctrl3");
 		this.currentPerson.setNickName(this.nickname.getText());
-		System.out.println("ctrl4");
 		this.currentPerson.setAddress(this.adresse.getText());
-		System.out.println("ctrl5");
 		this.currentPerson.seteMailAddress(this.mail.getText());
-		System.out.println("ctrl6");
 		this.currentPerson.setPhoneNumber(this.phone.getText());
-		System.out.println("ctrl7");
 		this.currentPerson.setBirthDate(LocalDate.parse(this.birthday.getText()));
-		System.out.println("ctrl8");
 		
-		// Get in the BDD:
+		// Get in the DB:
 		PersonDao personDao = new PersonDao();
 		this.currentPerson = personDao.addPerson(this.currentPerson);
 		
