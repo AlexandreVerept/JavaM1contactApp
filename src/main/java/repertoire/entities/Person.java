@@ -159,8 +159,13 @@ public class Person {
 	}
 	
 	public String getBirthDateString() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-		return this.birthDate.format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-LL-dd");
+		if(this.birthDate==null) {
+			return this.birthDate.format(formatter);
+		}
+		else {
+			return null;
+		}
 	}
 
 	@Override
