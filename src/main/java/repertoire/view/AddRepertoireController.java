@@ -1,5 +1,7 @@
 package repertoire.view;
 
+import java.time.LocalDate;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -30,7 +32,7 @@ public class AddRepertoireController {
 	@FXML
 	private TextField birthday;
 	
-	private Person currentPerson;
+	private Person currentPerson = new Person();
 	
 	@FXML
 	public void handleAddButton() throws Exception {
@@ -40,6 +42,7 @@ public class AddRepertoireController {
 		this.currentPerson.setAddress(this.adresse.getText());
 		this.currentPerson.seteMailAddress(this.mail.getText());
 		this.currentPerson.setPhoneNumber(this.phone.getText());
+		//this.currentPerson.setBirthDate(LocalDate.parse(this.birthday.getText()));
 		//Ton code pour le ADD
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}

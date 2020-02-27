@@ -111,7 +111,7 @@ public class RepertoireListController {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
 		if(selectedIndex>=0) {
 			//ton code BDD pour la modification sachant que les info sont contenues dans le current person
-			this.refreshList();
+			this.populateList();
 		}
 	}
 	
@@ -142,6 +142,7 @@ public class RepertoireListController {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
 		if(selectedIndex>=0) {
 			//ton code BDD pour le delete
+			this.populateList();
 			this.resetView();
 		}
 	}
