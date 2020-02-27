@@ -37,7 +37,11 @@ public class AddRepertoireController {
 	@FXML
 	private TextField birthday;
 	
+	@FXML
+	private TextField url;
+	
 	private Person currentPerson = new Person();
+	private String addurl;
 	
 	@FXML
 	public void handleAddButton() throws Exception {
@@ -48,8 +52,6 @@ public class AddRepertoireController {
 		this.currentPerson.seteMailAddress(this.mail.getText());
 		this.currentPerson.setPhoneNumber(this.phone.getText());
 		this.currentPerson.setBirthDate(LocalDate.parse(this.birthday.getText()));
-		
-		// Get in the DB:
 		PersonDao personDao = new PersonDao();
 		this.currentPerson = personDao.addPerson(this.currentPerson);
 		
@@ -59,5 +61,19 @@ public class AddRepertoireController {
 	@FXML
 	public void handleReturnButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
+	}
+	
+	@FXML
+	public void handleUrlButton() throws Exception {
+		addurl=this.url.getText();
+		//code gabi qui renvoie une Person
+		//this.currentPerson=		;
+		this.lastname.setText(this.currentPerson.getLastName());
+		this.firstname.setText(this.currentPerson.getFirstName());
+		this.nickname.setText(this.currentPerson.getNickName());
+		this.phone.setText(this.currentPerson.getPhoneNumber());
+		this.adresse.setText(this.currentPerson.getAddress());
+		this.mail.setText(this.currentPerson.geteMailAddress());
+		//this.birthday.setText(this.currentPerson.getBirthDateString());
 	}
 }
