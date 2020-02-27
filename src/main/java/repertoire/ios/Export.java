@@ -11,9 +11,6 @@ public class Export {
 
 	private RootManager exportRoot;
 
-	/**
-	 * 
-	 */
 	public Export() {
 		// TODO Auto-generated constructor stub
 	}

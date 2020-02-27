@@ -12,9 +12,6 @@ public class Import {
 
 	private RootManager importRoot;
 
-	/**
-	 * 
-	 */
 	public Import() {
 		// TODO Auto-generated constructor stub
 	}
