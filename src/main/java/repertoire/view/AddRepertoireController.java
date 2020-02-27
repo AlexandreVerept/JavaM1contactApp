@@ -37,7 +37,7 @@ public class AddRepertoireController {
 	@FXML
 	private TextField birthday;
 	
-	private Person currentPerson;
+	private Person currentPerson = new Person();
 	
 	@FXML
 	public void handleAddButton() throws Exception {

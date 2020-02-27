@@ -103,10 +103,9 @@ public class RepertoireListController {
 	@FXML
 	public void handleModifieButton() throws Exception {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
-		if (selectedIndex >= 0) {
-			// ton code BDD pour la modification sachant que les info sont contenues dans le
-			// current person
-			this.refreshList();
+		if(selectedIndex>=0) {
+			//ton code BDD pour la modification sachant que les info sont contenues dans le current person
+			this.populateList();
 		}
 	}
 
@@ -134,12 +133,9 @@ public class RepertoireListController {
 	@FXML
 	public void handleDeleteButton() throws Exception {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
-		if (selectedIndex >= 0) {
-			
-			// Delete in the BDD
-			PersonDao personDao = new PersonDao();
-			personDao.deletePersonbyID(selectedIndex);
-			
+		if(selectedIndex>=0) {
+			//ton code BDD pour le delete
+			this.populateList();
 			this.resetView();
 		}
 	}
