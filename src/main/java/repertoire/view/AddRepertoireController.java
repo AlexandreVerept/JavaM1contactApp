@@ -9,6 +9,7 @@ import repertoire.service.StageService;
 import repertoire.service.ViewService;
 import repertoire.dao.PersonDao;
 import repertoire.entities.Person;
+import repertoire.io.Import;
 
 /**
  * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
@@ -69,14 +70,21 @@ public class AddRepertoireController {
 	@FXML
 	public void handleUrlButton() throws Exception {
 		addurl=this.url.getText();
-		// TODO code gabi qui renvoie une Person
-		//this.currentPerson=		;
-		this.lastname.setText(this.currentPerson.getLastName());
-		this.firstname.setText(this.currentPerson.getFirstName());
-		this.nickname.setText(this.currentPerson.getNickName());
-		this.phone.setText(this.currentPerson.getPhoneNumber());
-		this.adresse.setText(this.currentPerson.getAddress());
-		this.mail.setText(this.currentPerson.geteMailAddress());
-		//this.birthday.setText(this.currentPerson.getBirthDateString());
+		Import newImport=new Import(addurl);//lien vers l'import
+		if(newImport.checkFile()==true) {//verification du chemin
+			this.currentPerson=newImport.importfromVcard();//import
+			
+			this.lastname.setText(this.currentPerson.getLastName());
+			this.firstname.setText(this.currentPerson.getFirstName());
+			this.nickname.setText(this.currentPerson.getNickName());
+			this.phone.setText(this.currentPerson.getPhoneNumber());
+			this.adresse.setText(this.currentPerson.getAddress());
+			this.mail.setText(this.currentPerson.geteMailAddress());
+			this.birthday.setText(this.currentPerson.getBirthDateString());
+		}
+		else {
+			System.out.println("impossible operation");
+		}
+		
 	}
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import repertoire.dao.PersonDao;
 import repertoire.entities.Person;
+import repertoire.io.Export;
 import repertoire.service.PersonService;
 import repertoire.utils.PersonChangeListener;
 import repertoire.utils.PersonValueFactory;
@@ -205,5 +206,12 @@ public class RepertoireListController {
 	@FXML
 	public void handleUrlexpButton() throws Exception {
 		// TODO la person a export est dans currentPerson
+		Export newExport=new Export("Comment je fais pour demander l'url à l'utilisateur?");//lien d'exportation vers un répertoire
+		if(newExport.checkDirectory()) { //vérification du répertoire
+			newExport.exportToVcard(this.currentPerson); //exportation
+			}
+		
+		
+		
 	}
 }
