@@ -1,5 +1,6 @@
 package repertoire.view;
 
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -52,6 +53,11 @@ public class RepertoireListController {
 
 	@FXML
 	private TextField Birthday;
+	
+	@FXML
+	private TextField Urlexport;
+	
+	private String expurl;
 
 	private Person currentPerson;
 	private boolean verif;
@@ -70,6 +76,7 @@ public class RepertoireListController {
 	private void initialize() {
 		this.personColumn.setCellValueFactory(new PersonValueFactory());
 		this.populateList();
+		this.Urlexport.setText(Paths.get("").toAbsolutePath().getParent().toString());
 		this.personsTable.getSelectionModel().selectedItemProperty().addListener(new PersonChangeListener() {
 			@Override
 			public void handleNewValue(Person newValue) {
@@ -206,7 +213,8 @@ public class RepertoireListController {
 	@FXML
 	public void handleUrlexpButton() throws Exception {
 		// TODO la person a export est dans currentPerson
-		Export newExport=new Export("Comment je fais pour demander l'url à l'utilisateur?");//lien d'exportation vers un répertoire
+		expurl=this.Urlexport.getText();
+		Export newExport=new Export(expurl);//lien d'exportation vers un répertoire
 		if(newExport.checkDirectory()) { //vérification du répertoire
 			newExport.exportToVcard(this.currentPerson); //exportation
 			}
