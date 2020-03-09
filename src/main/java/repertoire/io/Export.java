@@ -22,16 +22,21 @@ public class Export {
 	 */
 	
 	public Export(String path) throws IOException {
-		this.root=Paths.get(path);
+		Path newPath=Paths.get(path);//stockage provisoire du chemin
+		
+		if(Files.isDirectory(newPath)) {//on regarde s'il s'agit d'un chemin de répertoire ou d'un chemin de fichier
+		this.root=newPath;}
+		
+		else {
+			this.root=newPath.getParent();//si c'est un chemin de fichier on prend le parent pour chemin
+		}
+		
 		if(Files.notExists(this.root)) {//si le répertoire n'existe pas alors on doit le créer
 			Files.createDirectory(this.root);
 		}
 		this.extension=".vcard";//extension .vcard
 	}
 	
-	public boolean checkDirectory() { //vérifier que le chemin est un chemin de répertoire
-		return Files.isDirectory(this.root);
-	}
 	
 	private Path returnFilePath(String fileName) { //donne le chemin du fichier qui va être créé
 		Path file=this.root.resolve(fileName+this.extension);

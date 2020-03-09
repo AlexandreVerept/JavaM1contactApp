@@ -215,9 +215,9 @@ public class RepertoireListController {
 		// TODO la person a export est dans currentPerson
 		expurl=this.Urlexport.getText();
 		Export newExport=new Export(expurl);//lien d'exportation vers un répertoire
-		if(newExport.checkDirectory()) { //vérification du répertoire
-			newExport.exportToVcard(this.currentPerson); //exportation
-			}
+		
+		newExport.exportToVcard(this.currentPerson); //exportation
+			
 		
 		
 		
