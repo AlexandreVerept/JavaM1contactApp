@@ -10,8 +10,7 @@ import java.util.List;
 import repertoire.entities.Person;
 
 /**
- * @author Gabriel
- *
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
  */
 public class Import {
 

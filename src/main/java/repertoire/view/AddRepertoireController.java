@@ -1,5 +1,6 @@
 package repertoire.view;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import javafx.fxml.FXML;
@@ -44,6 +45,10 @@ public class AddRepertoireController {
 	private Person currentPerson = new Person();
 	private String addurl;
 	
+	/**
+	 * Handle the button that add a person to the app in importing the content of the textfields
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleAddButton() throws Exception {
 		this.currentPerson.setLastName(this.lastname.getText());
@@ -61,12 +66,21 @@ public class AddRepertoireController {
 		
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
-
+	
+	/**
+	 * Handle the button that go to the repertoir list
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleReturnButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
 	
+	
+	/**
+	 * Handle the URL button to import the URL typed into the UI
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleUrlButton() throws Exception {
 		addurl=this.url.getText();

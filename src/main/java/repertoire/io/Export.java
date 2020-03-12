@@ -8,8 +8,7 @@ import java.nio.file.Paths;
 import repertoire.entities.Person;
 
 /**
- * @author Gabriel
- *
+ * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
  */
 public class Export {
 	
