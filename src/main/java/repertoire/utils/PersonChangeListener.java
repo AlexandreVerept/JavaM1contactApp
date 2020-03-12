@@ -1,5 +1,7 @@
 package repertoire.utils;
 
+import java.sql.SQLException;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import repertoire.entities.Person;
@@ -10,6 +12,9 @@ import repertoire.entities.Person;
 
 public abstract class PersonChangeListener implements ChangeListener<Person> {
 
+	/**
+	 * @param an observable, the old person and the new person
+	 */
 	public void changed(ObservableValue<? extends Person> observable, Person oldValue, Person newValue) {
 		handleNewValue(newValue);
 

@@ -62,16 +62,25 @@ public class RepertoireListController {
 	private Person currentPerson;
 	private boolean verif;
 
+	/**
+	 * Refresh the list of persons in the UI
+	 */
 	private void refreshList() {
 		this.personsTable.refresh();
 		this.personsTable.getSelectionModel().clearSelection();
 	}
-
+	
+	/**
+	 * Fill in the list of persons in the UI
+	 */
 	private void populateList() {
 		this.personsTable.setItems(PersonService.getPersons());
 		this.refreshList();
 	}
 
+	/**
+	 * Initialize the list of persons in the UI
+	 */
 	@FXML
 	private void initialize() {
 		this.personColumn.setCellValueFactory(new PersonValueFactory());
@@ -86,11 +95,17 @@ public class RepertoireListController {
 		this.resetView();
 	}
 
+	/**
+	 * Reset the list of persons in the UI
+	 */
 	private void resetView() {
 		this.showPersonDetail(null);
 		this.populateList();
 	}
 
+	/**
+	 * Show all the information about one selected contact in the UI
+	 */
 	private void showPersonDetail(Person person) {
 		if (person == null) {
 			formPane.setVisible(true);
@@ -113,7 +128,11 @@ public class RepertoireListController {
 			this.Birthday.setText(this.currentPerson.getBirthDateString());
 		}
 	}
-
+	
+	/**
+	 * Handle the button that modify the content of a person according to the textfields
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleModifieButton() throws Exception {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
@@ -131,11 +150,19 @@ public class RepertoireListController {
 		}
 	}
 
+	/**
+	 * Handle the button that clear all fields in the UI
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleClearButton() throws Exception {
 		this.resetView();
 	}
 
+	/**
+	 * Handle the button that search for a person in the list of contacts
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleResearchButton() throws Exception {
 		this.prep_recherche();
@@ -151,6 +178,10 @@ public class RepertoireListController {
 		}
 	}
 
+	/**
+	 * Handle the button that delete a selected person
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleDeleteButton() throws Exception {
 		int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
@@ -163,6 +194,10 @@ public class RepertoireListController {
 		}
 	}
 	
+	
+	/**
+	 * 
+	 */
 	public void prep_recherche() {
 		this.currentPerson = new Person();
 		this.verif=false;
@@ -210,6 +245,10 @@ public class RepertoireListController {
 		}
 	}
 	
+	/**
+	 * Handle the button that export the content of the textfields to a Vcard
+	 * @throws Exception
+	 */
 	@FXML
 	public void handleUrlexpButton() throws Exception {
 		// TODO la person a export est dans currentPerson

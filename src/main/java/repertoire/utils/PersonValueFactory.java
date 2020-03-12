@@ -1,5 +1,7 @@
 package repertoire.utils;
 
+import java.sql.SQLException;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
@@ -14,6 +16,10 @@ import repertoire.entities.Person;
 public class PersonValueFactory
 		implements Callback<TableColumn.CellDataFeatures<Person, String>, ObservableValue<String>> {
 
+	/**
+	 * Create an observable Value to refresh the persons in the UI
+	 * @return an observable
+	 */
 	public ObservableValue<String> call(CellDataFeatures<Person, String> cellData) {
 		return new SimpleStringProperty(cellData.getValue().getNickName());
 	}
