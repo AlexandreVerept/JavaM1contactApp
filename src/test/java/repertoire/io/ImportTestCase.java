@@ -2,6 +2,7 @@ package repertoire.io;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,6 +20,7 @@ public class ImportTestCase {
 	
 	    @Before
 	    public void initfiles() throws IOException {
+	    	//create the Vcard
 	    	Path newPath= Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\");
 	    	List<String> newList=new ArrayList();
 	    	newList.add("BEGIN:VCARD");
@@ -38,15 +40,15 @@ public class ImportTestCase {
 	    	if(Files.notExists(filePath)) {
 		    	Files.createFile(filePath);}
 	    	
+	    	// delete the txt if exists
+	    	filePath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\42AlbertEinstein.vcard");
+			File file = new File(filePath.toString());
+			if (file.exists() && !file.isDirectory()) {
+				file.delete();
+			}
 	    }
-	
 
-	@Before
-	public void initfiles() {
-		
-	}
-
-	  //test si fichier est correcte
+	  //test if the file is correct
 	@Test
 	public void shouldBeCorrect() throws IOException {
 		Import testImport = new Import("src\\main\\resources\\repertoire\\test\\Vcard\\1945DeGaulleCharles.vcard");

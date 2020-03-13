@@ -1,8 +1,0 @@
-BEGIN:VCARD
-VERSION:2.1
-N:DeGaulle;Charles;Charly Frenchy
-TEL:TYPE=cell:3630
-ADR:TYPE=home:1 rue du Général-de-Gaulle 52330 Colombey-les-deux-eglises
-EMAIL:FranceLibre@gmail.com
-ANNIVERSARY:1890-11-22
-END:VCARD

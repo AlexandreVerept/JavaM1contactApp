@@ -25,7 +25,7 @@ public class ExportTestCase {
 	 */
 	@Before
 	public void deleteVcardIfAlreadyExists() {
-		Path filePath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard");
+		Path filePath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\565ChurchillWinston.vcard");
 		File file = new File(filePath.toString());
 		if (file.exists() && !file.isDirectory()) {
 			file.delete();
