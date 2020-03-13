@@ -27,21 +27,20 @@ public class PersonDao {
 			try (Statement stmt = connection.createStatement()) {
 				try (ResultSet results = stmt.executeQuery("select * from person order by nickname")) {
 					while (results.next()) {
-						
-						if(results.getDate("birth_date")==null) {
+
+						if (results.getDate("birth_date") == null) {
 							Person person = new Person(results.getInt("idperson"), results.getString("lastname"),
 									results.getString("firstname"), results.getString("nickname"),
 									results.getString("phone_number"), results.getString("adress"),
 									results.getString("emailadress"));
 							listOfPerson.add(person);
-						}
-						else {
+						} else {
 							Person person = new Person(results.getInt("idperson"), results.getString("lastname"),
-								results.getString("firstname"), results.getString("nickname"),
-								results.getString("phone_number"), results.getString("adress"),
-								results.getString("emailadress"), results.getDate("birth_date").toLocalDate());
+									results.getString("firstname"), results.getString("nickname"),
+									results.getString("phone_number"), results.getString("adress"),
+									results.getString("emailadress"), results.getDate("birth_date").toLocalDate());
 							listOfPerson.add(person);
-						}						
+						}
 					}
 					return listOfPerson;
 				}
@@ -162,10 +161,9 @@ public class PersonDao {
 				stmt.setString(6, person.geteMailAddress());
 				// we need to do add one day as MySQL database create an offset of -1 day when
 				// we use "LocalDate" for unknown reason
-				if(person.getBirthDate()!=null) {
+				if (person.getBirthDate() != null) {
 					stmt.setDate(7, java.sql.Date.valueOf(person.getBirthDate().plusDays(1)));
-				}
-				else {
+				} else {
 					stmt.setNull(7, java.sql.Types.DATE);
 				}
 

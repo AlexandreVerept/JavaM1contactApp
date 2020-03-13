@@ -1,7 +1,5 @@
 package repertoire.utils;
 
-import java.sql.SQLException;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import repertoire.entities.Person;

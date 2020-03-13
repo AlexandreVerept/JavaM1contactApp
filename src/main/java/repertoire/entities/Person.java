@@ -45,9 +45,10 @@ public class Person {
 		this.eMailAddress = eMailAddress;
 		this.birthDate = birthDate;
 	}
-	
+
 	/**
 	 * The same object, but we do not need the birthdate
+	 * 
 	 * @param idPerson
 	 * @param lastName
 	 * @param firstName
@@ -180,13 +181,12 @@ public class Person {
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
-	
+
 	public String getBirthDateString() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-LL-dd");
-		if(this.birthDate!=null) {
+		if (this.birthDate != null) {
 			return this.birthDate.format(formatter);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
@@ -194,10 +194,9 @@ public class Person {
 	@Override
 	public String toString() {
 		String bd;
-		if (birthDate==null){
+		if (birthDate == null) {
 			bd = "";
-		}
-		else {
+		} else {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-LL-dd");
 			bd = this.birthDate.format(formatter);
 		}

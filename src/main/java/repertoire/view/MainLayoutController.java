@@ -12,6 +12,7 @@ public class MainLayoutController {
 
 	/**
 	 * Handle the button that close the application
+	 * 
 	 * @throws Exception
 	 */
 	public void closeApplication() {
@@ -20,6 +21,7 @@ public class MainLayoutController {
 
 	/**
 	 * Handle the button that go back to the menu
+	 * 
 	 * @throws Exception
 	 */
 	public void gotoHome() {

@@ -17,38 +17,40 @@ import org.junit.Test;
 import repertoire.entities.Person;
 
 public class ImportTestCase {
-	
-	    @Before
-	    public void initfiles() throws IOException {
-	    	//create the Vcard
-	    	Path newPath= Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\");
-	    	List<String> newList=new ArrayList<String>();
-	    	newList.add("BEGIN:VCARD");
-	    	newList.add("VERSION:2.1");
-	    	newList.add("N:DeGaulle;Charles;Charly Frenchy");
-	    	newList.add("TEL:TYPE=cell:3630");
-	    	newList.add("ADR:TYPE=home:1 rue du Général-de-Gaulle 52330 Colombey-les-deux-eglises");
-	    	newList.add("EMAIL:FranceLibre@gmail.com");
-	    	newList.add("ANNIVERSARY:1890-11-22");
-	    	newList.add("END:VCARD");
-	    	Path filePath=newPath.resolve("1945DeGaulleCharles.vcard");
-	    	if(Files.notExists(filePath)) {
-	    	Files.createFile(newPath.resolve("1945DeGaulleCharles.vcard"));
-	    	Files.write(newPath.resolve("1945DeGaulleCharles.vcard"),newList,StandardCharsets.UTF_8);}
-	    	
-	    	filePath=newPath.resolve("1945DeGaulleCharles.txt");
-	    	if(Files.notExists(filePath)) {
-		    	Files.createFile(filePath);}
-	    	
-	    	// delete the txt if exists
-	    	filePath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\42AlbertEinstein.vcard");
-			File file = new File(filePath.toString());
-			if (file.exists() && !file.isDirectory()) {
-				file.delete();
-			}
-	    }
 
-	  //test if the file is correct
+	@Before
+	public void initfiles() throws IOException {
+		// create the Vcard
+		Path newPath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\");
+		List<String> newList = new ArrayList<String>();
+		newList.add("BEGIN:VCARD");
+		newList.add("VERSION:2.1");
+		newList.add("N:DeGaulle;Charles;Charly Frenchy");
+		newList.add("TEL:TYPE=cell:3630");
+		newList.add("ADR:TYPE=home:1 rue du Général-de-Gaulle 52330 Colombey-les-deux-eglises");
+		newList.add("EMAIL:FranceLibre@gmail.com");
+		newList.add("ANNIVERSARY:1890-11-22");
+		newList.add("END:VCARD");
+		Path filePath = newPath.resolve("1945DeGaulleCharles.vcard");
+		if (Files.notExists(filePath)) {
+			Files.createFile(newPath.resolve("1945DeGaulleCharles.vcard"));
+			Files.write(newPath.resolve("1945DeGaulleCharles.vcard"), newList, StandardCharsets.UTF_8);
+		}
+
+		filePath = newPath.resolve("1945DeGaulleCharles.txt");
+		if (Files.notExists(filePath)) {
+			Files.createFile(filePath);
+		}
+
+		// delete the txt if exists
+		filePath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\42AlbertEinstein.vcard");
+		File file = new File(filePath.toString());
+		if (file.exists() && !file.isDirectory()) {
+			file.delete();
+		}
+	}
+
+	// test if the file is correct
 	@Test
 	public void shouldBeCorrect() throws IOException {
 		Import testImport = new Import("src\\main\\resources\\repertoire\\test\\Vcard\\1945DeGaulleCharles.vcard");
