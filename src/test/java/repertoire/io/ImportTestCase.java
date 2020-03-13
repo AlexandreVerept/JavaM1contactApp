@@ -22,7 +22,7 @@ public class ImportTestCase {
 	    public void initfiles() throws IOException {
 	    	//create the Vcard
 	    	Path newPath= Paths.get("src\\main\\resources\\repertoire\\test\\Vcard\\");
-	    	List<String> newList=new ArrayList();
+	    	List<String> newList=new ArrayList<String>();
 	    	newList.add("BEGIN:VCARD");
 	    	newList.add("VERSION:2.1");
 	    	newList.add("N:DeGaulle;Charles;Charly Frenchy");
