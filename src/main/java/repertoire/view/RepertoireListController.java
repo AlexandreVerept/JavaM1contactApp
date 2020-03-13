@@ -256,9 +256,6 @@ public class RepertoireListController {
 		Export newExport=new Export(expurl);//lien d'exportation vers un répertoire
 		
 		newExport.exportToVcard(this.currentPerson); //exportation
-			
-		
-		
-		
+
 	}
 }

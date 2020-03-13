@@ -12,16 +12,19 @@ import repertoire.service.ViewService;
 public class HomeScreenController {
 
 	/**
-	 * Handdle the button that go to the repertoire 
+	 * Handdle the button that go to the repertoire
+	 * 
 	 * @throws Exception
 	 */
 	@FXML
 	public void handleShowButton() throws Exception {
 		StageService.showView((Node) ViewService.getView("RepertoireList"));
 	}
-	
+
 	/**
-	 * Handle the button that add a person to the app in importing the content of the textfields
+	 * Handle the button that add a person to the app in importing the content of
+	 * the textfields
+	 * 
 	 * @throws Exception
 	 */
 	@FXML

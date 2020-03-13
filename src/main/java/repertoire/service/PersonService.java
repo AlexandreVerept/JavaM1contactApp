@@ -19,31 +19,31 @@ public class PersonService {
 
 	private PersonService() {
 		persons = FXCollections.observableArrayList();
-		
+
 		PersonDao personDao = new PersonDao();
 		List<Person> personsInTheDB = personDao.listPersons();
-		
+
 		Iterator<Person> iter = personsInTheDB.iterator();
-		
-		while(iter.hasNext()) {
+
+		while (iter.hasNext()) {
 			persons.add(iter.next());
 		}
-		
+
 	}
 
 	public static ObservableList<Person> getPersons() {
-		
+
 		PersonServiceHolder.INSTANCE.persons.clear();
-		
+
 		PersonDao personDao = new PersonDao();
 		List<Person> personsInTheDB = personDao.listPersons();
-		
+
 		Iterator<Person> iter = personsInTheDB.iterator();
-		
-		while(iter.hasNext()) {
+
+		while (iter.hasNext()) {
 			PersonServiceHolder.INSTANCE.persons.add(iter.next());
 		}
-		
+
 		return PersonServiceHolder.INSTANCE.persons;
 	}
 
