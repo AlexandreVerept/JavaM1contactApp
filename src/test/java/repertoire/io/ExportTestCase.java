@@ -1,4 +1,5 @@
 package repertoire.io;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
@@ -18,7 +19,7 @@ import repertoire.entities.Person;
  */
 
 public class ExportTestCase {
-	
+
 	/**
 	 * This methods is used to clear the test folder before each and every test.
 	 */
@@ -26,8 +27,8 @@ public class ExportTestCase {
 	public void deleteVcardIfAlreadyExists() {
 		Path filePath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard");
 		File file = new File(filePath.toString());
-		if(file.exists() && !file.isDirectory()) { 
-		    file.delete();
+		if (file.exists() && !file.isDirectory()) {
+			file.delete();
 		}
 	}
 
@@ -36,10 +37,11 @@ public class ExportTestCase {
 	 */
 	@Test
 	public void shouldAddVcard() throws IOException {
-		Export testExport=new Export("src\\main\\resources\\repertoire\\test\\Vcard");
-		Person testPerson=new Person(565,"Churchill","Winston","WC","3640","5th BakerStreet London","winston59@gmail.com",LocalDate.now());
+		Export testExport = new Export("src\\main\\resources\\repertoire\\test\\Vcard");
+		Person testPerson = new Person(565, "Churchill", "Winston", "WC", "3640", "5th BakerStreet London",
+				"winston59@gmail.com", LocalDate.now());
 		testExport.exportToVcard(testPerson);
-		Path testPath=Paths.get("src\\main\\resources\\repertoire\\test\\Vcard");
+		Path testPath = Paths.get("src\\main\\resources\\repertoire\\test\\Vcard");
 		assertThat(Files.exists(testPath)).isEqualTo(true);
 	}
 
