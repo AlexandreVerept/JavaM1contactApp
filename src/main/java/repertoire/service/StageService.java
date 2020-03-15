@@ -34,6 +34,7 @@ public class StageService {
 
 	/**
 	 * Method used to initialize The Primary Stage
+	 * 
 	 * @param primaryStage
 	 */
 	public static void initPrimaryStage(Stage primaryStage) {
@@ -46,6 +47,7 @@ public class StageService {
 
 	/**
 	 * Method used to show a view in the stage
+	 * 
 	 * @param rootElement
 	 */
 	public static void showView(Node rootElement) {

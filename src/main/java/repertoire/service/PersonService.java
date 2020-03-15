@@ -3,7 +3,6 @@ package repertoire.service;
 import repertoire.dao.PersonDao;
 import repertoire.entities.Person;
 
-import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -54,7 +53,9 @@ public class PersonService {
 	}
 
 	/**
-	 * Method used to add a person in the list in Person Service (used to test the application before the BDD)
+	 * Method used to add a person in the list in Person Service (used to test the
+	 * application before the BDD)
+	 * 
 	 * @param person
 	 */
 	public static void addPerson(Person person) {
@@ -62,7 +63,7 @@ public class PersonService {
 	}
 
 	/**
-	 *Method used to hold the service
+	 * Method used to hold the service
 	 */
 	private static class PersonServiceHolder {
 		private static final PersonService INSTANCE = new PersonService();
