@@ -9,10 +9,19 @@ import repertoire.RepertoireApp;
  */
 public class ViewService {
 
+	/**
+	 * @param <T>
+	 * @param id
+	 * @return a View of any type (Text, ...) from its id
+	 */
 	public static <T> T getView(String id) {
 		return getLoader(id).getRoot();
 	}
 
+	/**
+	 * @param id
+	 * @return a Loader FXML from the id of a view
+	 */
 	private static FXMLLoader getLoader(String id) {
 		try {
 			FXMLLoader loader = new FXMLLoader();

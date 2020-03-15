@@ -10,13 +10,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * @authors Gabriel Desmullier, Daniel Gheyssens, Alexandre Verept
+ * @authors Gabriel Desmullier, Daniel Gheysens, Alexandre Verept
  */
 
 public class PersonService {
 
 	private ObservableList<Person> persons;
 
+	/**
+	 * Method used to create the service
+	 */
 	private PersonService() {
 		persons = FXCollections.observableArrayList();
 
@@ -31,6 +34,9 @@ public class PersonService {
 
 	}
 
+	/**
+	 * @return An ObservableList for java FX with all the person got from the BDD
+	 */
 	public static ObservableList<Person> getPersons() {
 
 		PersonServiceHolder.INSTANCE.persons.clear();
@@ -47,10 +53,17 @@ public class PersonService {
 		return PersonServiceHolder.INSTANCE.persons;
 	}
 
+	/**
+	 * Method used to add a person in the list in Person Service (used to test the application before the BDD)
+	 * @param person
+	 */
 	public static void addPerson(Person person) {
 		PersonServiceHolder.INSTANCE.persons.add(person);
 	}
 
+	/**
+	 *Method used to hold the service
+	 */
 	private static class PersonServiceHolder {
 		private static final PersonService INSTANCE = new PersonService();
 	}

@@ -17,6 +17,9 @@ public class StageService {
 
 	}
 
+	/**
+	 * Method Use to create on holder for the Stage
+	 */
 	private static class StageServiceHolder {
 		private static final StageService INSTANCE = new StageService();
 	}
@@ -29,6 +32,10 @@ public class StageService {
 		return StageServiceHolder.INSTANCE.primaryStage;
 	}
 
+	/**
+	 * Method used to initialize The Primary Stage
+	 * @param primaryStage
+	 */
 	public static void initPrimaryStage(Stage primaryStage) {
 		primaryStage.setTitle("Repertoire App");
 		primaryStage.setScene(new Scene(StageServiceHolder.INSTANCE.mainLayout));
@@ -37,10 +44,17 @@ public class StageService {
 		StageServiceHolder.INSTANCE.primaryStage = primaryStage;
 	}
 
+	/**
+	 * Method used to show a view in the stage
+	 * @param rootElement
+	 */
 	public static void showView(Node rootElement) {
 		StageServiceHolder.INSTANCE.mainLayout.setCenter(rootElement);
 	}
 
+	/**
+	 * Method used to close a view
+	 */
 	public static void closeStage() {
 		StageServiceHolder.INSTANCE.primaryStage
 				.fireEvent(new WindowEvent(StageServiceHolder.INSTANCE.primaryStage, WindowEvent.WINDOW_CLOSE_REQUEST));
